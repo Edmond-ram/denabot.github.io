@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Ram Denara</title>
+    <style>
+        body {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* height: 100vh; */
+            width: 100vw;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* flex-flow: wrap; */
+        }
+
+        body>div {
+            display: flex;
+            width: inherit;
+            margin: 3%;
+            justify-content: center;
+            /* align-items: stretch; */
+        }
+
+        /* h1{color: red;} */
+        #fChoice {
+            display: flex;
+            margin-left: left;
+            margin-right: auto;
+        }
+
+        #fChoice>div {
+            display: flex;
+            width: 100vw
+        }
+
+        #fChoice>div:nth-child(1) {
+            justify-content: center;
+        }
+
+        #fChoice>div:nth-child(2) {
+            margin-left: auto;
+            justify-content: center;
+        }
+
+        #cButtons {
+            display: contents;
+        }
+
+        .dialButtons {
+            display: contents;
+        }
+
+        #actionButtons>button {
+            background-color: #05473b;
+            border-radius: 5%;
+            color: white;
+            border-bottom: none;
+            /* height: 100%; */
+            /* width: 30%; */
+            margin: 1%;
+            padding: 1.5%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .label-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            align-items: center;
+        }
+
+        .label {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .rise {
+            color: green;
+        }
+
+        .fall {
+            color: red;
+        }
+
+        .horizontal-bar {
+            width: 80%;
+            align-items: center;
+            height: 20px;
+            background-color: lightgray;
+            position: relative;
+        }
+
+        .percentage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 90%;
+            width: 0;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .percentage.rise {
+            background-color: green;
+        }
+
+        .percentage.fall {
+            background-color: red;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: teal;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 0px;
+        }
+
+        .textbox,.textbox1,.textbox2 {
+            width: 60px;
+            text-align: center;
+            font-size: 20px;
+
+        }
+
+        .percentage-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #startButton,#startButton1,#startButton2,#startButton4,#stopButton,#stopButton1,#stopButton2,#stopButton4 {
+            background-color: #008080;
+            /* Blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #textBox,#textBox1,#textBox2 {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #ticksInput,#ticksInput1,#ticksInput2{
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .progress-bar ,.progress-bar1,.progress-bar2{
+            width: 150px;
+            height: 20px;
+            margin: 0 10px;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .progress-fill-even,.progress-fill-even1,.progress-fill-even2 {
+            height: 100%;
+            width: 0;
+            background-color: #0077cc;
+            /* Dark blue for even, can adjust percentages */
+            position: absolute;
+        }
+
+        .progress-fill-odd,.progress-fill-odd1,.progress-fill-odd2 {
+            height: 100%;
+            width: 0;
+            background-color: #00ccff;
+            /* Sky blue for odd, can adjust percentages */
+            position: absolute;
+        }
+
+        .progress-label,.progress-label1,.progress-label2 {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #ff3333;
+            /* Red label for even */
+        }
+
+        .progress-label-odd,.progress-label-odd1,.progress-label-odd2 {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #0077cc;
+            /* Blue label for odd */
+        }
+
+        .progress-text,.progress-text1.progress-text2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+    </style>
+</head>
+
+
+<style>
+    /* Define CSS styles for the text */
+    #heading {
+        font-weight: bold;
+    }
+
+    .ram-text {
+        color: teal;
+    }
+
+    .denara-text {
+        color: #ba0a0a; /* Tiffany Blue color */
+    }
+
+    .tool-text {
+        color: #00a2e8; /* Turquoise Blue color */
+    }
+</style>
+
+
+
+
+
+</head>
+<body>
+
+
+
+    <body oncontextmenu="return false"> <!-- Prevent right-clicking -->
+        <!-- Create the heading with different colored text -->
+        
+
+
+
+<!-- Create the heading with different colored text -->
+<h1 id="heading">
+    <span class="ram-text">D</span><span class="denara-text">ena</span><span class="tool-text">Bot</span>
+</h1>
+</body>
+
+
+<body>
+    <div id="fChoice">
+        <div>
+            <div style="background-color: red; color:white;border-radius: 1%;">Market</div>
+            <div>
+                <select>
+                    <option>Volatility 10 index</option>
+                    <option>Volatility 10(1s) index</option>
+                    <option>Volatility 25 index</option>
+                    <option>Volatility 25(1s) index</option>
+                    <option>Volatility 50 index</option>
+                    <option>Volatility 50(1s) index</option>
+                    <option>Volatility 75 index</option>
+                    <option>Volatility 75(1s) index</option>
+                    <option>Volatility 100 index</option>
+                    <option>Volatility 100(1s) index</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div style="background-color: red; color:white;border-radius: 8%;">Strategy</div>
+            <div>
+                <select>
+                    <option>Matches</option>
+                    <option>Over</option>
+                    <option>Under</option>z
+                    <option>Even</option>
+
+                    <option>Odd</option>
+                    <option>Differs</option>
+                    <option>Rise</option>
+                    <option>Fall</option>
+                    <!-- <option>?</option>
+                    <option>?</option> -->
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="actionButtons" style="display: flex">
+        <button> Step 1. </br>Start Analysis</button>
+        <button>Step 2.</br>Stop/Restart Analysis</button>
+        <button onclick="showPopup()">Request </br> Original Bot</button>
+
+
+
+        
+    </div>
+
+    <div id="">
+        <div>
+            <button>Over</button>
+            <button>0</button>
+              <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+        </div>
+    </div>
+    <div id="">
+        <div>
+            <button>Under</button>
+            <button>0</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+        </div>
+    </div>
+
+    <div class="container" style="display: initial;">
+        <h2>EVEN AND ODD</h2><br>
+        <button id="startButton">Start Analysis</button>
+
+        <input type="text" id="textBox" readonly>
+        <button id="stopButton">Stop Analysis</button>
+        </br>
+        <label for="ticksInput">Ticks:</label>
+        </br>
+        <input type="number" id="ticksInput" min="1" max="120" value="1">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-label">Even</div>
+                <div class="progress-fill-even"></div>
+                <div class="progress-text">0%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-label-odd">Odd</div>
+                <div class="progress-fill-odd"></div>
+                <div class="progress-text">0%</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="container" style="display: initial;">
+        <h2>OVER AND UNDER</h2><br>
+        <button id="startButton1">Start Analysis</button>
+
+        <input type="text" id="textBox1" readonly>
+        <button id="stopButton1">Stop Analysis</button>
+        </br>
+        <label for="ticksInput1">Ticks:</label>
+        </br>
+        <input type="number" id="ticksInput1" min="1" max="120" value="1">
+        <div class="progress-container">
+            <div class="progress-bar1">
+                <div class="progress-label1">Over</div>
+                <div class="progress-fill-even1"></div>
+                <div class="progress-text1">0%</div>
+            </div>
+            <div class="progress-bar1">
+                <div class="progress-label-odd1">Under</div>
+                <div class="progress-fill-odd1"></div>
+                <div class="progress-text1">0%</div>
+            </div>
+        </div>
+    </div><br>  <div class="container" style="display: initial;">
+        <h2>MATCHES AND DIFFERS</h2><br>
+        <button id="startButton2">Start Analysis</button>
+
+        <input type="text" id="textBox2" readonly>
+        <button id="stopButton2">Stop Analysis</button>
+        </br>
+        <label for="ticksInput2">Ticks:</label>
+        </br>
+        <input type="number" id="ticksInput2" min="1" max="120" value="1">
+        <div class="progress-container">
+            <div class="progress-bar2">
+                <div class="progress-label2">Matches</div>
+                <div class="progress-fill-even2"></div>
+                <div class="progress-text2">0%</div>
+            </div>
+            <div class="progress-bar2">
+                <div class="progress-label-odd2">Differs</div>
+                <div class="progress-fill-odd2"></div>
+                <div class="progress-text2">0%</div>
+            </div>
+        </div>
+    </div><br>
+    <!-- <div id="">
+    <div>
+        <button>Even<br>Odd</button>
+        <button>Start</button>
+    </div>
+</div>
+     -->
+
+    </div>
+    <div class="label-container">
+        <input type="text" class="textbox" id="riseTextbox" readonly>
+        <div class="horizontal-bar">
+            <div class="percentage rise" style="width: 0%" id="risePercentage"></div>
+        </div>
+        <div class="label rise">Rise</div>
+    </div>
+
+    <div class="label-container">
+        <input type="text" class="textbox" id="fallTextbox" readonly>
+        <div class="horizontal-bar">
+            <div class="percentage fall" style="width: 0%" id="fallPercentage"></div>
+        </div>
+        <div class="label fall">Fall</div>
+    </div>
+
+
+
+    <div class="percentage-container">
+        <div class="percentage-text">Percentage</title>
+        </div>
+        <div class="percentage-tessssit">Percentage:</div>
+    </div>
+
+    <div class="button-container">
+        <button class="button" id="startButton4">Start</button>
+        <button class="button" id="stopButton4">Stop</button>
+    </div>
+    <div id="cButtons">
+
+
+        <script>
+            let riseInterval;
+            let fallInterval;
+
+            function generateRandomPercentage() {
+                return Math.floor(Math.random() * (95 - 50 + 1) + 50);
+            }
+
+            function startRise() {
+                riseInterval = setInterval(() => {
+                    const newRisePercentage = generateRandomPercentage();
+                    document.querySelector('.percentage.rise').style.width = `${newRisePercentage}%`;
+                    document.getElementById('riseTextbox').value = `${newRisePercentage}%`;
+                }, 5000); // Update every 5 seconds
+            }
+
+            function stopRise() {
+                clearInterval(riseInterval);
+            }
+
+            function startFall() {
+                fallInterval = setInterval(() => {
+                    const newFallPercentage = generateRandomPercentage();
+                    document.querySelector('.percentage.fall').style.width = `${newFallPercentage}%`;
+                    document.getElementById('fallTextbox').value = `${newFallPercentage}%`;
+                }, 5000); // Update every 5 seconds
+            }
+
+            function stopFall() {
+                clearInterval(fallInterval);
+            }
+
+            document.getElementById('startButton').addEventListener('click', () => {
+                startRise();
+                startFall();
+            });
+            document.getElementById('startButton1').addEventListener('click', () => {
+                startRise();
+                startFall();
+            });
+            document.getElementById('startButton2').addEventListener('click', () => {
+                startRise();
+                startFall();
+            });
+            
+
+            document.getElementById('stopButton').addEventListener('click', () => {
+                stopRise();
+                stopFall();
+            });
+
+
+
+
+            // FOR THE TICK FUNC
+            let timerId;
+            let timerId1;
+            let timerId2;
+            const textBox = document.getElementById('textBox');
+            const textBox1 = document.getElementById('textBox1');
+            const textBox2 = document.getElementById('textBox2');
+            const startButton = document.getElementById('startButton');
+            const startButton1 = document.getElementById('startButton1');
+            const startButton2 = document.getElementById('startButton2');
+            const stopButton = document.getElementById('stopButton');
+            const stopButton1 = document.getElementById('stopButton1');
+            const stopButton2 = document.getElementById('stopButton2');
+            const ticksInput = document.getElementById('ticksInput');
+            const ticksInput1 = document.getElementById('ticksInput1');
+            const ticksInput2 = document.getElementById('ticksInput2');
+            const progressBarEven = document.querySelector('.progress-fill-even');
+            const progressBarEven1 = document.querySelector('.progress-fill-even1');
+            const progressBarEven2 = document.querySelector('.progress-fill-even2');
+            const progressBarOdd = document.querySelector('.progress-fill-odd');
+            const progressBarOdd1 = document.querySelector('.progress-fill-odd1');
+            const progressBarOdd2 = document.querySelector('.progress-fill-odd2');
+
+            let evenPercentage = 0;
+            let evenPercentage1 = 0;
+            let evenPercentage2 = 0;
+            let oddPercentage = 0;
+            let oddPercentage1 = 0;
+            let oddPercentage2 = 0;
+
+            startButton.addEventListener('click', () => {
+                const ticks = parseInt(ticksInput.value);
+                const interval = ticks < 5 ? 5000 : 6000;
+
+                timerId = setInterval(() => {
+                    const randomNumber = Math.floor(Math.random() * 10);
+                    textBox.value = randomNumber;
+
+                    // Update the progress bars based on even/odd
+                    if (randomNumber % 2 === 0) {
+                        evenPercentage += 7.3; // Adjust for even percentage
+                        oddPercentage -= 2.1; // Adjust for odd percentage
+                    } else {
+                        oddPercentage += 7.3; // Adjust for odd percentage
+                        evenPercentage -= 2.1; // Adjust for even percentage
+                    }
+
+                    if (evenPercentage > 100) evenPercentage = 100;
+                    if (oddPercentage > 100) oddPercentage = 100;
+                    if (evenPercentage < 0) evenPercentage = 0;
+                    if (oddPercentage < 0) oddPercentage = 0;
+
+                    progressBarEven.style.width = `${evenPercentage}%`;
+                    progressBarEven.nextElementSibling.textContent = `${Math.floor(evenPercentage)}%`;
+                    progressBarOdd.style.width = `${oddPercentage}%`;
+                    progressBarOdd.nextElementSibling.textContent = `${Math.floor(oddPercentage)}%`;
+                }, interval);
+
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                ticksInput.disabled = true;
+            });
+
+            startButton1.addEventListener('click', () => {
+                const ticks = parseInt(ticksInput.value);
+                const interval = ticks < 1 ? 8000 : 6000;
+
+                timerId1 = setInterval(() => {
+                    const randomNumber1 = Math.floor(Math.random() * 10);
+                    textBox1.value = randomNumber1;
+
+                    // Update the progress bars based on even/odd
+                    if (randomNumber1 % 2 === 0) {
+                        evenPercentage1 += 7.3; // Adjust for even percentage
+                        oddPercentage1 -= 2.1; // Adjust for odd percentage
+                    } else {
+                        oddPercentage1 += 7.3; // Adjust for odd percentage
+                        evenPercentage1 -= 2.1; // Adjust for even percentage
+                    }
+
+                    if (evenPercentage1 > 100) evenPercentage1 = 100;
+                    if (oddPercentage1 > 100) oddPercentage1 = 100;
+                    if (evenPercentage1 < 0) evenPercentage1 = 0;
+                    if (oddPercentage1 < 0) oddPercentage1 = 0;
+
+                    progressBarEven1.style.width = `${evenPercentage1}%`;
+                    progressBarEven1.nextElementSibling.textContent = `${Math.floor(evenPercentage1)}%`;
+                    progressBarOdd1.style.width = `${oddPercentage1}%`;
+                    progressBarOdd1.nextElementSibling.textContent = `${Math.floor(oddPercentage1)}%`;
+                }, interval);
+
+                startButton1.disabled = true;
+                stopButton1.disabled = false;
+                ticksInput1.disabled = true;
+            });
+
+            startButton2.addEventListener('click', () => {
+                const ticks = parseInt(ticksInput.value);
+                const interval = ticks < 1 ? 16000 : 18000;
+
+                timerId2 = setInterval(() => {
+                    const randomNumber2 = Math.floor(Math.random() * 10);
+                    textBox2.value = randomNumber2;
+
+                    // Update the progress bars based on even/odd
+                    if (randomNumber2 % 2 === 0) {
+                        evenPercentage2 += 7.3; // Adjust for even percentage
+                        oddPercentage2 -= 2.1; // Adjust for odd percentage
+                    } else {
+                        oddPercentage2 += 7.3; // Adjust for odd percentage
+                        evenPercentage2 -= 2.1; // Adjust for even percentage
+                    }
+
+                    if (evenPercentage2 > 100) evenPercentage2 = 100;
+                    if (oddPercentage2 > 100) oddPercentage2 = 100;
+                    if (evenPercentage2 < 0) evenPercentage2 = 0;
+                    if (oddPercentage2 < 0) oddPercentage2 = 0;
+
+                    progressBarEven2.style.width = `${evenPercentage2}%`;
+                    progressBarEven2.nextElementSibling.textContent = `${Math.floor(evenPercentage2)}%`;
+                    progressBarOdd2.style.width = `${oddPercentage2}%`;
+                    progressBarOdd2.nextElementSibling.textContent = `${Math.floor(oddPercentage2)}%`;
+                }, interval);
+
+                startButton2.disabled = true;
+                stopButton2.disabled = false;
+                ticksInput2.disabled = true;
+            });
+
+            stopButton.addEventListener('click', () => {
+                clearInterval(timerId);
+                startButton.disabled = false;
+                stopButton.disabled = true;
+                ticksInput.disabled = false;
+            });
+
+            stopButton1.addEventListener('click', () => {
+                clearInterval(timerId1);
+                startButton1.disabled = false;
+                stopButton1.disabled = true;
+                ticksInput1.disabled = false;
+            });
+
+            stopButton2.addEventListener('click', () => {
+                clearInterval(timerId2);
+                startButton2.disabled = false;
+                stopButton2.disabled = true;
+                ticksInput2.disabled = false;
+            });
+        </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background-color: #054c41;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-icons a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .contact-icons a:hover {
+            color: #04601c; /* Change to the color you prefer on hover */
+        }
+
+        .icon {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <p>Contact us:</p>
+        <div class="contact-icons">
+            <a href="https://wa.me/254757592447" target="_blank"><i class="fab fa-whatsapp icon"></i> WhatsApp Me.</a>
+            <a href="tel:0757592447"><i class="fas fa-phone icon"></i> Call </a>
+            <a href="sms:0757592447"><i class="fas fa-comment icon"></i> SMS Us</a>
+            <a href="mailto:ramfxbinary@gmail.com"><i class="fas fa-envelope icon"></i> Email Admin</a>
+        </div>
+        <p>Terms and conditions apply</p>
+    </div>
+</body>
+</html>

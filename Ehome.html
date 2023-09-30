@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<body oncontextmenu="return false;"> <!-- Disable right-click on the page -->
+    <!-- Your HTML content here -->
+  </body>
+<head>
+  <style>
+    /* Center everything on the page */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* Style for the teal background of pop-ups */
+    .popup-bg {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 128, 128, 0.9); /* Teal Blue Background */
+    }
+
+    /* Style for the pop-up container */
+    .popup-container {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Style for the label container */
+    .bot-label {
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* Style for the bot name */
+    .bot-name {
+      font-size: 20px;
+    }
+
+    /* Style for the download button */
+    .download-button {
+      background-color: #007fff; /* Forex blue color */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    /* Style for the red heading */
+    .red-heading {
+      color: red;
+      font-size: 24px;
+    }
+
+    /* Style for the question */
+    .red-question {
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="red-heading">DOWNLOAD THE BOTS</h1>
+
+  <!-- Pop-up for Bot 1 -->
+  <div class="popup-bg" id="popup-bot1">
+    <div class="popup-container">
+      <i class="bot-icon">🤖</i>
+      <div class="Dena bot">Dena bot</div>
+      <p> costs 2000! Kindly make payment to be able to download.</p>
+      <button class="download-button" onclick="closePopup('popup-bot1')">Close</button>
+    </div>
+  </div>
+
+  <div class="bot-label">
+    <i class="bot-icon">🤖</i>
+    <div class="V5 bot">V5 bot</div>
+    <button class="download-button" onclick="showPopup('popup-bot1')">Download</button>
+  </div>
+  
+  <!-- Pop-up for Bot 2 -->
+  <div class="popup-bg" id="popup-bot2">
+    <div class="popup-container">
+      <i class="bot-icon">🤖</i>
+      <div class="bot-name">Bot Name 2</div>
+      <p> costs 2000! Kindly make payment to be able to download.</p>
+      <button class="download-button" onclick="closePopup('popup-bot2')">Close</button>
+    </div>
+  </div>
+
+  <div class="bot-label">
+    <i class="bot-icon">🤖</i>
+    <div class="bot-name">Bot Name 2</div>
+    <button class="download-button" onclick="showPopup('popup-bot2')">Download</button>
+  </div>
+  
+  <!-- Add more pop-ups and labels for other bots as needed -->
+  
+  <div class="red-question">Have you paid?</div>
+  <input type="radio" name="payment" value="yes"> Yes
+  <input type="radio" name="payment" value="no"> No
+  <br>
+  <button onclick="handlePaymentConfirmation()">Submit</button>
+
+  <script>
+    function showPopup(popupId) {
+      document.getElementById(popupId).style.display = 'block';
+    }
+
+    function closePopup(popupId) {
+      document.getElementById(popupId).style.display = 'none';
+    }
+
+    function handlePaymentConfirmation() {
+      const paymentRadioButtons = document.getElementsByName("payment");
+      let paymentStatus = "not selected";
+
+      for (let i = 0; i < paymentRadioButtons.length; i++) {
+        if (paymentRadioButtons[i].checked) {
+          paymentStatus = paymentRadioButtons[i].value;
+          break;
+        }
+      }
+
+      if (paymentStatus === "yes") {
+        alert("Message forwarded to admin for confirmation.");
+      } else if (paymentStatus === "no") {
+        alert("Make payment to 0757592447.");
+      } else {
+        alert("Please select payment status (Yes or No).");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #logo {
+            max-width: 250px;
+        }
+
+        #heading {
+            color: #008080;
+            font-size: 36px;
+        }
+
+        form {
+            background-color: #008080;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        label, input {
+            display: block;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #670909;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px;
+            background-color: hsl(0, 95%, 46%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #loginDetails {
+            color: #008080;
+            font-weight: bold;
+            margin: 20px auto;
+        }
+
+        #instructions {
+            color: hsl(0, 100%, 25%);
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        var allowedPasswords = ["Edmond", "Levis", "Marion", "Teresa", "Basweti"];
+
+        function checkPasswordAndRedirect() {
+            var enteredPassword = document.getElementById("password").value;
+            if (allowedPasswords.includes(enteredPassword)) {
+                // Redirect to "ehome.html" upon successful login
+                window.location.href = "New-Ehome.html";
+            } else {
+                // Show an alert for wrong password
+                alert(" Wrong! Call or WhatsApp admin for logins(0757592447).");
+            }
+        }
+
+        function showInstructions() {
+            alert("HOW TO START:\n1. Make payments to admin. Send money to 0757592447.\n2. Text WhatsApp for logins.\n3. Ask for any guidance on how to use the tool.\n4. Terms and conditions apply. Success!");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://pbs.twimg.com/media/F7GY0gkWoAAsavg?format=jpg&name=small" alt="Logo" id="logo">
+        <h1 id="heading">Read terms and Conditions </br>Then Login</h1>
+    </header>
+    <form id="loginForm">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username" placeholder="your name" required>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password" required>
+        <button type="button" onclick="checkPasswordAndRedirect()">Login</button>
+    </form>
+    <div id="loginDetails">
+        Get logins Kshs.4500
+    </div>
+    <div id="instructions">
+        <button class="red-button" onclick="showInstructions()">Instructions</button>
+    </div>
+    
+</body>
+</html>
+</br>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the red button */
+        .red-button {
+            background-color: rgb(146, 20, 20);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a class="red-button" href="mr.oyuu doc.html">Terms and conditions</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the silver button */
+    .silver-button {
+      background-color: rgb(4, 90, 77);
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Silver button linking to "ehome.html" -->
+<a href="ehome.html" class="silver-button">Get original Bot</a>
+
+</body>
+</html>

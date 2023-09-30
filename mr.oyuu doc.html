@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #fff; /* White background */
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: red; /* Red heading */
+        }
+
+        .popup-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .popup-content h2 {
+            font-size: 24px;
+        }
+
+        .popup-content p {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .popup-content button {
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DENABOT TERMS AND CONDITIONS</h1>
+    <p>Please read these Terms and Conditions ("Terms") carefully before using Denabot Binary Analysis Software ("Denabot"). These Terms outline the terms of use, limitations, and legal responsibilities associated with using Denabot. By accessing or using Denabot, you agree to comply with these Terms. If you do not agree with these Terms, please refrain from using Denabot.</p>
+    <ol>
+        <li>Risk Acknowledgment: Trading binary options involves significant risk and may not be suitable for all investors. Users of Denabot acknowledge that trading activities are subject to market fluctuations, financial risks, and potential loss of funds. It is essential to understand the risks associated with trading and to seek professional advice before engaging in any trading activities.</li>
+        <li>No Investment Advice: Denabot does not provide investment advice, recommendations, or endorsements. The software is designed for binary analysis and informational purposes only. Users are solely responsible for their trading decisions and should not rely solely on Denabot's analysis for making trading choices.</li>
+        <li>Illegal Distribution: The distribution of Denabot, including its software, documentation, or any associated materials, without explicit authorization from the rightful owner is illegal and strictly prohibited. Unauthorized distribution may result in legal action, including but not limited to criminal prosecution, with penalties that may include fines and imprisonment.</li>
+        <li>Intellectual Property: Denabot, its logo, software, documentation, and any other related materials are protected by intellectual property laws and regulations. Users may not modify, copy, reproduce, distribute, or create derivative works from Denabot's materials without the prior written consent of the rightful owner.</li>
+        <li>No Warranty: Denabot is provided "as is" without any warranties, representations, or guarantees of any kind, either express or implied. The creators of Denabot disclaim all warranties, including but not limited to the accuracy, reliability, and fitness for a particular purpose of the software and its analysis.</li>
+        <li>Limitation of Liability: To the extent permitted by law, the creators of Denabot shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use Denabot, including but not limited to trading losses, data loss, or financial damages.</li>
+        <li>Indemnification: Users agree to indemnify, defend, and hold harmless the creators of Denabot from any claims, losses, liabilities, damages, costs, and expenses (including legal fees) arising out of or related to the use or misuse of Denabot.</li>
+        <li>Governing Law and Jurisdiction: These Terms are governed by and construed in accordance with the laws of Kenya. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Kenya.</li>
+        <li>Changes to Terms: The creators of Denabot reserve the right to modify or revise these Terms at any time without prior notice. It is the user's responsibility to regularly review these Terms for any updates.</li>
+    </ol>
+
+    
+    <div class="popup-dialog" id="confirmDialog">
+        <div class="popup-content">
+            <h2>Confirmation</h2>
+            <p>I have read and agreed with terms and conditions.</p>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
+    </div>
+
+    <!-- Floating back button -->
+    <button bgcolor="red" class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        let scrollCount = 0; // Initialize scroll count
+
+        // Function to show the pop-up after 6 scrolls
+        function showPopup() {
+            let confirmDialog = document.getElementById("confirmDialog");
+            confirmDialog.style.display = "block";
+        }
+
+        // Function to handle the "Yes" and "No" buttons
+        function handleConfirmation(choice) {
+            let confirmDialog = document.getElementById("confirmDialog");
+
+            if (choice === 'yes') {
+                // User clicked "Yes"
+                window.location.href = "elogin.html"; // Redirect to another webpage
+            } else if (choice === 'no') {
+                // User clicked "No"
+                confirmDialog.style.display = "none"; // Close Confirmation dialog
+            }
+        }
+
+        // Track scroll events
+        window.addEventListener("scroll", function() {
+            scrollCount++;
+            if (scrollCount >= 6) {
+                // After 6 scrolls, trigger the popup
+                showPopup();
+                scrollCount = 0; // Reset scroll count
+            }
+        });
+
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>
